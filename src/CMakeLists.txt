@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-add_executable(IsometricShooter "main.cpp" "engine.h" "engine.cpp")
+add_executable(IsometricShooter "main.cpp" "engine.h" "engine.cpp" "assets.h" "assets.cpp" "state.h" "mainmenu.h")
 
 target_link_libraries(IsometricShooter PRIVATE fmt::fmt raylib)
 
