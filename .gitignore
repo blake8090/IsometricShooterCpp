@@ -1,3 +1,13 @@
+# Build directories
+build/
+bin/
+
+# Visual Studio
+.vs/
+
+# User-specific CMake presets
+CMakeUserPresets.json
+
 # Prerequisites
 *.d
 
