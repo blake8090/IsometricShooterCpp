@@ -37,5 +37,6 @@ private:
     std::vector<TextureRenderable> textures_;
 
     static void draw_grid(int width, int length);
+
     void draw_textures();
 };

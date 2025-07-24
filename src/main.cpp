@@ -8,7 +8,7 @@ int main() {
     Engine engine;
     engine.start("Isometric Shooter");
     engine.set_state(new MainMenuState(engine));
-    
+
     while (engine.is_running()) {
         engine.update();
     }

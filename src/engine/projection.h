@@ -4,7 +4,6 @@
 #include <raylib.h>
 
 namespace projection {
-
 /**
  * Width of one tile in pixels
  */
@@ -28,8 +27,8 @@ constexpr float get_isometric_ratio() {
 }
 
 Vector2 to_screen(float x, float y, float z);
+
 Vector2 to_screen(const Vector3& worldPos);
 
 Vector3 to_world(const Vector2& screenPos, float offset = 0.0f);
-
 }

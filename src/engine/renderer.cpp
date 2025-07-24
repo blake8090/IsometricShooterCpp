@@ -51,7 +51,6 @@ void Renderer::render() {
     DrawTexturePro(fbo_.texture, source, dest, (Vector2){ 0, 0 }, 0.0f, WHITE);
     DrawFPS(16, 16);
     EndDrawing();
-
 }
 
 void Renderer::draw_texture(const std::string& texture, const Vector3 world_pos) {

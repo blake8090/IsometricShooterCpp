@@ -5,48 +5,48 @@
 #include <raylib.h>
 
 void Engine::start(const std::string& window_title) {
-	renderer->init(window_title);
-	assets->init();
+    renderer->init(window_title);
+    assets->init();
 
-	running = true;
+    running = true;
 }
 
 void Engine::stop() {
-	running = false;
+    running = false;
 }
 
 void Engine::update() {
-	if (Renderer::window_closed()) {
-		stop();
-		return;
-	}
+    if (Renderer::window_closed()) {
+        stop();
+        return;
+    }
 
-	if (current_state) {
-		current_state->update(GetFrameTime());
-	}
+    if (current_state) {
+        current_state->update(GetFrameTime());
+    }
 
-	renderer->render();
+    renderer->render();
 }
 
 void Engine::shutdown() {
-	if (current_state) {
-		current_state->stop();
-	}
+    if (current_state) {
+        current_state->stop();
+    }
 
-	assets->shutdown();
-	renderer->shutdown();
-	running = false;
+    assets->shutdown();
+    renderer->shutdown();
+    running = false;
 }
 
-void Engine::set_state(State* state) {
-	if (current_state) {
-		current_state->stop();
-	}
+void Engine::set_state(State *state) {
+    if (current_state) {
+        current_state->stop();
+    }
 
-	state->start();
-	current_state = std::unique_ptr<State>(state);
+    state->start();
+    current_state = std::unique_ptr<State>(state);
 }
 
 bool Engine::is_running() const {
-	return running;
+    return running;
 }

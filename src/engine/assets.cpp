@@ -8,22 +8,22 @@
 #include <raylib.h>
 
 void Assets::init() {
-	load_texture("assets/bullet.png");
+    load_texture("assets/bullet.png");
 }
 
 void Assets::shutdown() {
-	fmt::println("[Assets] INFO: Shutting down");
-	for (const auto&[name, texture] : textures) {
-		UnloadTexture(*texture);
-		fmt::println("[Assets] INFO: Unloaded texture {}", name);
-	}
+    fmt::println("[Assets] INFO: Shutting down");
+    for (const auto& [name, texture]: textures) {
+        UnloadTexture(*texture);
+        fmt::println("[Assets] INFO: Unloaded texture {}", name);
+    }
 }
 
 Texture2D& Assets::get_texture(const std::string& name) {
-	return *textures[name];
+    return *textures[name];
 }
 
 void Assets::load_texture(const std::string& fileName) {
-	Texture2D texture = LoadTexture(fileName.c_str());
-	textures.emplace(fileName, std::make_unique<Texture2D>(texture));
+    Texture2D texture = LoadTexture(fileName.c_str());
+    textures.emplace(fileName, std::make_unique<Texture2D>(texture));
 }

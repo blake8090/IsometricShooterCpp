@@ -8,30 +8,32 @@
 #include <string>
 
 class Engine {
-
 public:
-	Engine() {
-		running = false;
-		assets = std::make_unique<Assets>();
-		renderer = std::make_unique<Renderer>(*this);
-	}
+    Engine() {
+        running = false;
+        assets = std::make_unique<Assets>();
+        renderer = std::make_unique<Renderer>(*this);
+    }
 
-	void start(const std::string& window_title);
-	void stop();
-	void update();
-	void shutdown();
+    void start(const std::string& window_title);
 
-	void set_state(State* state);
+    void stop();
 
-	bool is_running() const;
+    void update();
 
-	std::unique_ptr<Assets> assets;
-	std::unique_ptr<Renderer> renderer;
+    void shutdown();
+
+    void set_state(State *state);
+
+    bool is_running() const;
+
+    std::unique_ptr<Assets> assets;
+    std::unique_ptr<Renderer> renderer;
 
 private:
-	std::string windowTitle;
+    std::string windowTitle;
 
-	std::unique_ptr<State> current_state;
-	
-	bool running;
+    std::unique_ptr<State> current_state;
+
+    bool running;
 };
