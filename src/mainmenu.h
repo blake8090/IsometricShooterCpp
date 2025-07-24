@@ -1,7 +1,7 @@
 #pragma once
 
-#include "engine.h"
-#include "state.h"
+#include "engine/engine.h"
+#include "engine/state.h"
 
 class MainMenuState : public State {
 public:
