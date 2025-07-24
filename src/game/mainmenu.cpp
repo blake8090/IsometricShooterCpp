@@ -13,6 +13,6 @@ void MainMenuState::stop() {
 }
 
 void MainMenuState::update(float delta) {
-	Texture2D bullet = engine.assets->get_texture("assets/bullet.png");
+	const Texture2D bullet = engine.assets->get_texture("assets/bullet.png");
 	DrawTexture(bullet, 300, 300, WHITE);
 }

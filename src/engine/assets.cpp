@@ -13,9 +13,9 @@ void Assets::init() {
 
 void Assets::shutdown() {
 	fmt::println("[Assets] INFO: Shutting down");
-	for (const auto& pair : textures) {
-		UnloadTexture(*pair.second);
-		fmt::println("[Assets] INFO: Unloaded texture {}", pair.first);
+	for (const auto&[name, texture] : textures) {
+		UnloadTexture(*texture);
+		fmt::println("[Assets] INFO: Unloaded texture {}", name);
 	}
 }
 

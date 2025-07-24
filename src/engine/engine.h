@@ -3,7 +3,6 @@
 #include "assets.h"
 #include "state.h"
 
-#include <iostream>
 #include <memory>
 #include <string>
 

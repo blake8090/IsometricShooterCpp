@@ -1,11 +1,10 @@
 #pragma once
 
-#include "engine.h"
 #include "state.h"
 
-class MainMenuState : public State {
+class MainMenuState final : public State {
 public:
-	MainMenuState(const Engine& e) : State(e) {}
+	explicit MainMenuState(const Engine& e) : State(e) {}
 
 	void start() override;
 	void stop() override;

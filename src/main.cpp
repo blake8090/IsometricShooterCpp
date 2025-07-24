@@ -2,10 +2,6 @@
 #include "engine/state.h"
 #include "game/mainmenu.h"
 
-#include <fmt/core.h>
-#include <iostream>
-#include <raylib.h>
-
 using namespace std;
 
 int main() {
