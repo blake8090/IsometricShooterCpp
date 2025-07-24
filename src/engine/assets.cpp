@@ -1,5 +1,8 @@
 #include "assets.h"
 
+// fixes issue when building with CLion
+#define FMT_HEADER_ONLY
+
 #include <fmt/core.h>
 #include <memory>
 #include <raylib.h>

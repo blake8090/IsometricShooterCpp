@@ -2,6 +2,9 @@
 build/
 bin/*.exe
 
+#JetBrains
+.idea/
+
 # Visual Studio
 .vs/
 
