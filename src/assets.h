@@ -12,10 +12,10 @@ public:
 	void start();
 	void shutdown();
 
-	Texture2D& get_texture(std::string name);
+	Texture2D& get_texture(const std::string& name);
 
 private:
-	void load_texture(std::string fileName);
+	void load_texture(const std::string& fileName);
 
 	std::unordered_map<std::string, std::unique_ptr<Texture2D>> textures;
 };

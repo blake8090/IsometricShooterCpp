@@ -16,11 +16,11 @@ void Assets::shutdown() {
 	}
 }
 
-Texture2D& Assets::get_texture(std::string name) {
+Texture2D& Assets::get_texture(const std::string& name) {
 	return *textures[name];
 }
 
-void Assets::load_texture(std::string fileName) {
+void Assets::load_texture(const std::string& fileName) {
 	Texture2D texture = LoadTexture(fileName.c_str());
 	textures.emplace(fileName, std::make_unique<Texture2D>(texture));
 }
