@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cmath>
-#include <raymath.h>
+#include <raylib.h>
 
 namespace projection {
 

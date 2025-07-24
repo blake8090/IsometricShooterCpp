@@ -5,7 +5,7 @@
 #include <raylib.h>
 
 void Engine::start(const std::string& windowTitle) {
-	Renderer::init(windowTitle);
+	renderer->init(windowTitle);
 	assets->init();
 
 	running = true;
@@ -25,7 +25,7 @@ void Engine::update() {
 		current_state->update(GetFrameTime());
 	}
 
-	Renderer::render();
+	renderer->render();
 }
 
 void Engine::shutdown() {

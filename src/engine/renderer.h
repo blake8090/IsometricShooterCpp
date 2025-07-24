@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 #include <string>
 
 class Engine;
@@ -8,12 +9,16 @@ public:
     explicit Renderer(const Engine& e) : engine(e) {}
     virtual ~Renderer() = default;
 
-    static void init(const std::string& windowTitle);
+    void init(const std::string& windowTitle);
     static void shutdown();
-    static void render();
+    void render() const;
 
     static bool window_closed();
 
 private:
     const Engine& engine;
+
+    Camera2D camera_{};
+
+    static void draw_grid(int width, int length);
 };
