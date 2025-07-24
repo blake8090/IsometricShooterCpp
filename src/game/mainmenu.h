@@ -9,4 +9,7 @@ public:
 	void start() override;
 	void stop() override;
 	void update(float delta) override;
+
+private:
+	float x = 0.0;
 };

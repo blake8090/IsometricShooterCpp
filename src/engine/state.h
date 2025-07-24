@@ -4,7 +4,7 @@ class Engine;
 
 class State {
 public:
-	explicit State(const Engine& e) : engine(e) {}
+	explicit State(const Engine& e) : engine_(e) {}
 	virtual ~State() = default;
 
 	virtual void start() = 0;
@@ -12,5 +12,5 @@ public:
 	virtual void update(float delta) = 0;
 
 protected:
-	const Engine& engine;
+	const Engine& engine_;
 };

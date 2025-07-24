@@ -5,14 +5,15 @@
 #include <raylib.h>
 
 void MainMenuState::start() {
-	fmt::println("[MainMenuState] INFO: start!");
+    fmt::println("[MainMenuState] INFO: start!");
 }
 
 void MainMenuState::stop() {
-	fmt::println("[MainMenuState] INFO: stop!");
+    fmt::println("[MainMenuState] INFO: stop!");
 }
 
-void MainMenuState::update(float delta) {
-	const Texture2D bullet = engine.assets->get_texture("assets/bullet.png");
-	DrawTexture(bullet, 300, 300, WHITE);
+void MainMenuState::update(const float delta) {
+    constexpr float speed = 1.25f;
+    x += delta * speed;
+    engine_.renderer->draw_texture("assets/bullet.png", { x, 0.0, 0.0 });
 }

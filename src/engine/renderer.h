@@ -1,16 +1,27 @@
 #pragma once
 #include <raylib.h>
 #include <string>
+#include <vector>
 
 class Engine;
 
+struct TextureRenderable {
+    std::string texture_name;
+    Vector3 world_pos;
+};
+
 class Renderer {
 public:
-    explicit Renderer(const Engine& e) : engine_(e) {}
+    explicit Renderer(const Engine& e) : engine_(e) {
+    }
 
     void init(const std::string& window_title);
+
     void shutdown() const;
-    void render() const;
+
+    void render();
+
+    void draw_texture(const std::string& texture, Vector3 world_pos);
 
     static bool window_closed();
 
@@ -23,5 +34,8 @@ private:
 
     Camera2D camera_{};
 
+    std::vector<TextureRenderable> textures_;
+
     static void draw_grid(int width, int length);
+    void draw_textures();
 };

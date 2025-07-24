@@ -2,7 +2,7 @@
 
 namespace projection {
 
-Vector2 to_screen(float x, float y, float z) {
+Vector2 to_screen(const float x, const float y, const float z) {
     constexpr float scaleX = TILE_SIZE_X / 2.0;
     constexpr float scaleY = TILE_SIZE_Y / 2.0;
     const float height = z * TILE_SIZE_Z;
