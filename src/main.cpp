@@ -1,6 +1,6 @@
 #include "engine/engine.h"
 #include "engine/state.h"
-#include "mainmenu.h"
+#include "game/mainmenu.h"
 
 #include <fmt/core.h>
 #include <iostream>
