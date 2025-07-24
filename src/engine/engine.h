@@ -10,13 +10,12 @@
 class Engine {
 
 public:
-	Engine(std::string title) {
-		windowTitle = title;
+	Engine() {
 		running = false;
 		assets = std::make_unique<Assets>();
 	}
 
-	void start();
+	void start(const std::string& windowTitle);
 	void stop();
 	void update();
 	void shutdown();

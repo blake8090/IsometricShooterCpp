@@ -9,7 +9,7 @@
 class Assets {
 
 public:
-	void start();
+	void init();
 	void shutdown();
 
 	Texture2D& get_texture(const std::string& name);

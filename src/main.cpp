@@ -9,9 +9,9 @@
 using namespace std;
 
 int main() {
-    Engine engine("Isometric Shooter");
+    Engine engine;
+    engine.start("Isometric Shooter");
     engine.set_state(new MainMenuState(engine));
-    engine.start();
     
     while (engine.is_running()) {
         engine.update();

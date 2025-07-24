@@ -4,7 +4,7 @@
 #include <memory>
 #include <raylib.h>
 
-void Assets::start() {
+void Assets::init() {
 	load_texture("assets/bullet.png");
 }
 

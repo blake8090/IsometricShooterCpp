@@ -4,11 +4,11 @@
 #include <memory>
 #include <raylib.h>
 
-void Engine::start() {
-	InitWindow(1920, 1080, "My first RAYLIB program!");
+void Engine::start(const std::string& windowTitle) {
+	InitWindow(1920, 1080, windowTitle.c_str());
 	SetTargetFPS(60);
 
-	assets->start();
+	assets->init();
 
 	running = true;
 }
