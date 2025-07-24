@@ -3,31 +3,47 @@
 
 #include <raylib.h>
 
-void Renderer::init(const std::string &windowTitle) {
-    constexpr int virtual_width = 960;
-    constexpr int virtual_height = 540;
-    // TODO: render to a texture using virtual width/height and scale up to screen size
-    InitWindow(virtual_width, virtual_height, windowTitle.c_str());
+void Renderer::init(const std::string& window_title) {
+    // TODO: pass in window width/height from config loaded by the engine
+    InitWindow(1920, 1080, window_title.c_str());
     SetTargetFPS(60);
 
+    fbo_ = LoadRenderTexture(virtual_width_, virtual_height_);
+
     camera_.target = projection::to_screen(0.0, 0.0, 0.0);
-    camera_.offset = {virtual_width * 0.5, virtual_height * 0.5 };
+    camera_.offset = { static_cast<float>(virtual_width_) * 0.5f, static_cast<float>(virtual_height_) * 0.5f };
     camera_.zoom = 1.0;
 }
 
-void Renderer::shutdown() {
+void Renderer::shutdown() const {
+    UnloadRenderTexture(fbo_);
     CloseWindow();
 }
 
 void Renderer::render() const {
-    BeginDrawing();
+    // draw game world to the fbo
+    BeginTextureMode(fbo_);
     ClearBackground(BLACK);
-
     BeginMode2D(camera_);
     DrawCircle(0, 0, 15, WHITE);
     draw_grid(20, 20);
     EndMode2D();
+    EndTextureMode();
 
+    // define what area of the fbo texture we'll draw - in this case, the entire texture
+    const Rectangle source = {
+        0.0f,
+        0.0f,
+        static_cast<float>(fbo_.texture.width),
+        static_cast<float>(-fbo_.texture.height), // flip to match OpenGL coords which are inverted
+    };
+
+    // the fbo texture will be scaled and drawn to this area (the entire screen)
+    const Rectangle dest = { 0.0f, 0.0f, 1920.0f, 1080.0f };
+
+    BeginDrawing();
+    ClearBackground(BLACK);
+    DrawTexturePro(fbo_.texture, source, dest, (Vector2){ 0, 0 }, 0.0f, WHITE);
     EndDrawing();
 }
 

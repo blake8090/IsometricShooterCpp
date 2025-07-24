@@ -4,8 +4,8 @@
 #include <memory>
 #include <raylib.h>
 
-void Engine::start(const std::string& windowTitle) {
-	renderer->init(windowTitle);
+void Engine::start(const std::string& window_title) {
+	renderer->init(window_title);
 	assets->init();
 
 	running = true;
@@ -34,7 +34,7 @@ void Engine::shutdown() {
 	}
 
 	assets->shutdown();
-	Renderer::shutdown();
+	renderer->shutdown();
 	running = false;
 }
 

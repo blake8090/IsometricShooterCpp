@@ -16,7 +16,7 @@ public:
 		renderer = std::make_unique<Renderer>(*this);
 	}
 
-	void start(const std::string& windowTitle);
+	void start(const std::string& window_title);
 	void stop();
 	void update();
 	void shutdown();
