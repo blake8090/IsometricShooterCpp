@@ -1,6 +1,7 @@
 #pragma once
 
 #include "assets.h"
+#include "renderer.h"
 #include "state.h"
 
 #include <memory>
@@ -12,6 +13,7 @@ public:
 	Engine() {
 		running = false;
 		assets = std::make_unique<Assets>();
+		renderer = std::make_unique<Renderer>(*this);
 	}
 
 	void start(const std::string& windowTitle);
@@ -24,6 +26,7 @@ public:
 	bool is_running() const;
 
 	std::unique_ptr<Assets> assets;
+	std::unique_ptr<Renderer> renderer;
 
 private:
 	std::string windowTitle;

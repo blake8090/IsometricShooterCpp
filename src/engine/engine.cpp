@@ -1,13 +1,11 @@
 #include "engine.h"
+#include "renderer.h"
 
-#include <fmt/core.h>
 #include <memory>
 #include <raylib.h>
 
 void Engine::start(const std::string& windowTitle) {
-	InitWindow(1920, 1080, windowTitle.c_str());
-	SetTargetFPS(60);
-
+	Renderer::init(windowTitle);
 	assets->init();
 
 	running = true;
@@ -18,7 +16,7 @@ void Engine::stop() {
 }
 
 void Engine::update() {
-	if (WindowShouldClose()) {
+	if (Renderer::window_closed()) {
 		stop();
 		return;
 	}
@@ -27,10 +25,7 @@ void Engine::update() {
 		current_state->update(GetFrameTime());
 	}
 
-	BeginDrawing();
-	ClearBackground(BLACK);
-	DrawCircle(0, 0, 15, WHITE);
-	EndDrawing();
+	Renderer::render();
 }
 
 void Engine::shutdown() {
@@ -39,13 +34,11 @@ void Engine::shutdown() {
 	}
 
 	assets->shutdown();
-	
-	CloseWindow();
+	Renderer::shutdown();
 	running = false;
 }
 
-void Engine::set_state(State* state)
-{
+void Engine::set_state(State* state) {
 	if (current_state) {
 		current_state->stop();
 	}
