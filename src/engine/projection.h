@@ -22,9 +22,7 @@ constexpr int TILE_SIZE_Z = 32;
 /**
  * Two to one ratio (64/32 = 2)
  */
-constexpr float get_isometric_ratio() {
-    return std::sqrt(static_cast<float>(TILE_SIZE_X) / static_cast<float>(TILE_SIZE_Y));
-}
+float get_isometric_ratio();
 
 Vector2 to_screen(float x, float y, float z);
 

@@ -2,6 +2,10 @@
 
 namespace projection {
 
+float get_isometric_ratio() {
+    return std::sqrt(static_cast<float>(TILE_SIZE_X) / static_cast<float>(TILE_SIZE_Y));
+}
+
 Vector2 to_screen(const float x, const float y, const float z) {
     constexpr float scaleX = TILE_SIZE_X / 2.0;
     constexpr float scaleY = TILE_SIZE_Y / 2.0;

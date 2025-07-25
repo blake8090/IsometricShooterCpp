@@ -2,6 +2,11 @@
 #include <raylib.h>
 #include <vector>
 
+struct Segment {
+    Vector3 start;
+    Vector3 end;
+};
+
 struct Line3D {
     Vector3 start;
     Vector3 end;

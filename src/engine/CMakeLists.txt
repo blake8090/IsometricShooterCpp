@@ -5,6 +5,7 @@ add_library(engine STATIC
         renderer.cpp
         projection.cpp
         shapes.h
+        box.h
 )
 target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

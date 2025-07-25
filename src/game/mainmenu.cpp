@@ -18,4 +18,7 @@ void MainMenuState::update(const float delta) {
     engine_.renderer->draw_texture("assets/bullet.png", { x, 0.0, 0.0 });
 
     engine_.renderer->draw_circle(Vector3{ 0.0f, 0.0f, 0.0f }, 1.0f, BLUE);
+
+    const Box b{Vector3{4.0f, 0.0f, 0.0f}, Vector3{1.0f, 1.0f, 1.5f}};
+    engine_.renderer->draw_box(b, 1.0f, BLUE);
 }

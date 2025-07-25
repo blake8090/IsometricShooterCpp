@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+#include "box.h"
 #include "shapes.h"
 
 class Engine;
@@ -26,6 +27,10 @@ public:
     void draw_texture(const std::string& texture, Vector3 world_pos);
 
     void draw_circle(Vector3 pos, float radius, Color color);
+
+    void draw_line(Vector3 start, Vector3 end, float width, Color color);
+
+    void draw_box(const Box& box, float width, Color color);
 
     static bool window_closed();
 

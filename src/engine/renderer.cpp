@@ -49,7 +49,7 @@ void Renderer::render() {
 
     BeginDrawing();
     ClearBackground(BLACK);
-    DrawTexturePro(fbo_.texture, source, dest, (Vector2){ 0, 0 }, 0.0f, WHITE);
+    DrawTexturePro(fbo_.texture, source, dest, Vector2{ 0, 0 }, 0.0f, WHITE);
     DrawFPS(16, 16);
     EndDrawing();
 }
@@ -60,6 +60,16 @@ void Renderer::draw_texture(const std::string& texture, const Vector3 world_pos)
 
 void Renderer::draw_circle(const Vector3 pos, const float radius, const Color color) {
     shapes_.circles.push_back(Circle3D{ pos, radius, color });
+}
+
+void Renderer::draw_line(const Vector3 start, const Vector3 end, const float width, const Color color) {
+    shapes_.lines.push_back(Line3D{start, end, width, color});
+}
+
+void Renderer::draw_box(const Box& box, const float width, const Color color) {
+    for (const auto& segment: box.get_segments()) {
+        draw_line(segment.start, segment.end, width, color);
+    }
 }
 
 bool Renderer::window_closed() {
