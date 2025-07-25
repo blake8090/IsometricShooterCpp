@@ -11,7 +11,7 @@ public:
 
     void shutdown();
 
-    Texture2D &get_texture(const std::string& name);
+    Texture2D& get_texture(const std::string& name);
 
 private:
     void load_texture(const std::string& fileName);

@@ -51,4 +51,6 @@ private:
     void draw_textures();
 
     void draw_shapes();
+
+    void draw_actors();
 };

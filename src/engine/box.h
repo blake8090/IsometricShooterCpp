@@ -1,6 +1,7 @@
 #pragma once
 
 #include <raylib.h>
+#include <raymath.h>
 #include <vector>
 
 #include "shapes.h"
@@ -15,6 +16,8 @@ public:
     Vector3 size;
 
     [[nodiscard]] std::vector<Segment> get_segments() const;
+
+    static Box from_min_max(const Vector3& min, const Vector3& max);
 
 private:
     Vector3 min_{
@@ -51,4 +54,11 @@ inline std::vector<Segment> Box::get_segments() const {
     segments.push_back(Segment(Vector3(max_.x, max_.y, min_.z), Vector3(max_.x, max_.y, max_.z)));
 
     return segments;
+}
+
+inline Box Box::from_min_max(const Vector3& min, const Vector3& max) {
+    const Vector3 size = Vector3Subtract(max, min);
+    const Vector3 scaledSize = Vector3Scale(size, 0.5f);
+    const Vector3 center = Vector3Add(min, scaledSize);
+    return { center, size };
 }
