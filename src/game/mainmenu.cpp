@@ -16,4 +16,6 @@ void MainMenuState::update(const float delta) {
     constexpr float speed = 1.25f;
     x += delta * speed;
     engine_.renderer->draw_texture("assets/bullet.png", { x, 0.0, 0.0 });
+
+    engine_.renderer->draw_circle(Vector3{ 0.0f, 0.0f, 0.0f }, 1.0f, BLUE);
 }

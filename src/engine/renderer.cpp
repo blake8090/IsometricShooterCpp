@@ -31,6 +31,7 @@ void Renderer::render() {
     BeginMode2D(camera_);
     draw_grid(20, 20);
     draw_textures();
+    draw_shapes();
     EndMode2D();
 
     EndTextureMode();
@@ -55,6 +56,10 @@ void Renderer::render() {
 
 void Renderer::draw_texture(const std::string& texture, const Vector3 world_pos) {
     textures_.emplace_back(TextureRenderable{ texture, world_pos });
+}
+
+void Renderer::draw_circle(const Vector3 pos, const float radius, const Color color) {
+    shapes_.circles.push_back(Circle3D{ pos, radius, color });
 }
 
 bool Renderer::window_closed() {
@@ -101,4 +106,40 @@ void Renderer::draw_textures() {
         );
     }
     textures_.clear();
+}
+
+void Renderer::draw_shapes() {
+    for (const auto& line: shapes_.lines) {
+        DrawLineEx(
+            projection::to_screen(line.start),
+            projection::to_screen(line.end),
+            line.width,
+            line.color
+        );
+    }
+
+    for (const auto& circle: shapes_.circles) {
+        const float ratio = projection::get_isometric_ratio();
+        const float width = circle.radius * (projection::TILE_SIZE_X / 2.0f) * ratio;
+        const float height = circle.radius * (projection::TILE_SIZE_Y / 2.0f) * ratio;
+        auto [x, y] = projection::to_screen(Vector3{ 0.0f, 0.0f, 0.0f });
+
+        DrawEllipseLines(
+            static_cast<int>(x),
+            static_cast<int>(y),
+            width,
+            height,
+            circle.color
+        );
+    }
+
+    for (const auto& point: shapes_.points) {
+        DrawCircleV(
+            projection::to_screen(point.pos),
+            point.size,
+            point.color
+        );
+    }
+
+    shapes_.clear();
 }

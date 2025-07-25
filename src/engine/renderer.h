@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "shapes.h"
+
 class Engine;
 
 struct TextureRenderable {
@@ -23,6 +25,8 @@ public:
 
     void draw_texture(const std::string& texture, Vector3 world_pos);
 
+    void draw_circle(Vector3 pos, float radius, Color color);
+
     static bool window_closed();
 
 private:
@@ -35,8 +39,11 @@ private:
     Camera2D camera_{};
 
     std::vector<TextureRenderable> textures_;
+    Shapes shapes_{};
 
     static void draw_grid(int width, int length);
 
     void draw_textures();
+
+    void draw_shapes();
 };

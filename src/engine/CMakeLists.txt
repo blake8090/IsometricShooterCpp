@@ -4,6 +4,7 @@ add_library(engine STATIC
         "engine.cpp" "state.h" "assets.cpp"
         renderer.cpp
         projection.cpp
+        shapes.h
 )
 target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
