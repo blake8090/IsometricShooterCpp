@@ -19,6 +19,6 @@ void MainMenuState::update(const float delta) {
 
     engine_.renderer->draw_circle(Vector3{ 0.0f, 0.0f, 0.0f }, 1.0f, BLUE);
 
-    const Box b{Vector3{4.0f, 0.0f, 0.0f}, Vector3{1.0f, 1.0f, 1.5f}};
-    engine_.renderer->draw_box(b, 1.0f, BLUE);
+    const Box test_box{Vector3{1.0f, 1.0f, 0.25f}, Vector3{1.0f, 1.0f, 1.5f}};
+    engine_.renderer->draw_box(test_box, 1.0f, BLUE);
 }

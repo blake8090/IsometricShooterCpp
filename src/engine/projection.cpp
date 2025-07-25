@@ -1,5 +1,7 @@
 #include "projection.h"
 
+#include <cmath>
+
 namespace projection {
 
 float get_isometric_ratio() {
@@ -7,10 +9,18 @@ float get_isometric_ratio() {
 }
 
 Vector2 to_screen(const float x, const float y, const float z) {
+    // this code was originally written for LibGDX, whose coordinate system starts in the bottom-left corner of the screen.
+    // raylib's system starts in the top-left corner, so we need to internally flip x and y to maintain consistency in rendering.
+    const float tx = y;
+    const float ty = x;
+
     constexpr float scaleX = TILE_SIZE_X / 2.0;
     constexpr float scaleY = TILE_SIZE_Y / 2.0;
-    const float height = z * TILE_SIZE_Z;
-    return Vector2((x + y) * scaleX, (y - x) * scaleY + height);
+
+    // we also have to flip the z-axis for Raylib's coordinate system
+    const float height = z * TILE_SIZE_Z * -1;
+
+    return Vector2((tx + ty) * scaleX, (ty - tx) * scaleY + height);
 }
 
 Vector2 to_screen(const Vector3& worldPos) {

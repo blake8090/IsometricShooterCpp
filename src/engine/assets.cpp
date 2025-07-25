@@ -1,6 +1,6 @@
 #include "assets.h"
 
-// fixes issue when building with CLion
+// fixes issue when building with MinGW
 //#define FMT_HEADER_ONLY
 
 #include <fmt/core.h>
