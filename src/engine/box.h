@@ -14,7 +14,7 @@ public:
     Vector3 pos;
     Vector3 size;
 
-    std::vector<Segment> get_segments() const;
+    [[nodiscard]] std::vector<Segment> get_segments() const;
 
 private:
     Vector3 min_{

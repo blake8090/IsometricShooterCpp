@@ -8,11 +8,11 @@ void Engine::start(const std::string& window_title) {
     renderer->init(window_title);
     assets->init();
 
-    running = true;
+    running_ = true;
 }
 
 void Engine::stop() {
-    running = false;
+    running_ = false;
 }
 
 void Engine::update() {
@@ -35,7 +35,7 @@ void Engine::shutdown() {
 
     assets->shutdown();
     renderer->shutdown();
-    running = false;
+    running_ = false;
 }
 
 void Engine::set_state(State *state) {
@@ -47,6 +47,6 @@ void Engine::set_state(State *state) {
     current_state = std::unique_ptr<State>(state);
 }
 
-bool Engine::is_running() const {
-    return running;
+bool Engine::running() const {
+    return running_;
 }

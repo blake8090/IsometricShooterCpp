@@ -10,7 +10,7 @@
 class Engine {
 public:
     Engine() {
-        running = false;
+        running_ = false;
         assets = std::make_unique<Assets>();
         renderer = std::make_unique<Renderer>(*this);
     }
@@ -25,7 +25,7 @@ public:
 
     void set_state(State *state);
 
-    bool is_running() const;
+    bool running() const;
 
     std::unique_ptr<Assets> assets;
     std::unique_ptr<Renderer> renderer;
@@ -35,5 +35,5 @@ private:
 
     std::unique_ptr<State> current_state;
 
-    bool running;
+    bool running_;
 };
