@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-#include "actor.h"
-#include "box.h"
+#include "../actor.h"
+#include "../box.h"
 #include "shapes.h"
 
 namespace engine {

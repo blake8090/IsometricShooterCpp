@@ -1,7 +1,7 @@
 #pragma once
 
 #include "assets.h"
-#include "renderer.h"
+#include "render/renderer.h"
 #include "state.h"
 #include "world.h"
 

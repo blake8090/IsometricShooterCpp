@@ -1,11 +1,11 @@
 #include "renderer.h"
-#include "projection.h"
-#include "actor.h"
+#include "../projection.h"
+#include "../actor.h"
 
 #include <vector>
 #include <raylib.h>
 
-#include "engine.h"
+#include "../engine.h"
 
 namespace engine {
 

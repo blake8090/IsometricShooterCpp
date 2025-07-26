@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.2)
 
 add_library(engine STATIC
         "engine.cpp" "state.h" "assets.cpp"
-        renderer.cpp
+        render/renderer.cpp
+        render/shapes.h
         projection.cpp
-        shapes.h
         box.h
         actor.h
         world.h
