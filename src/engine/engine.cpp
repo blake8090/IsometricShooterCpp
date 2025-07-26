@@ -4,6 +4,8 @@
 #include <memory>
 #include <raylib.h>
 
+namespace engine {
+
 void Engine::start(const std::string& window_title) {
     renderer->init(window_title);
     assets->init();
@@ -38,7 +40,7 @@ void Engine::shutdown() {
     running_ = false;
 }
 
-void Engine::set_state(State *state) {
+void Engine::set_state(State* state) {
     if (current_state) {
         current_state->stop();
     }
@@ -50,3 +52,5 @@ void Engine::set_state(State *state) {
 bool Engine::running() const {
     return running_;
 }
+
+};

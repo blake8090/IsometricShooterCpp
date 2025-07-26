@@ -7,6 +7,8 @@
 
 #include "engine.h"
 
+namespace engine {
+
 void Renderer::init(const std::string& window_title) {
     // TODO: pass in window width/height from config loaded by the engine
     InitWindow(1920, 1080, window_title.c_str());
@@ -178,3 +180,5 @@ void Renderer::draw_sprite(const Sprite& sprite, const Vector3& world_pos) const
         DrawTextureV(texture, screen_pos, WHITE);
     }
 }
+
+};

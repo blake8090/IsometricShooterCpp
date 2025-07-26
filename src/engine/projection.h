@@ -2,7 +2,8 @@
 
 #include <raylib.h>
 
-namespace projection {
+namespace engine::projection {
+
 /**
  * Width of one tile in pixels
  */
@@ -27,4 +28,5 @@ Vector2 to_screen(float x, float y, float z);
 Vector2 to_screen(const Vector3& worldPos);
 
 Vector3 to_world(const Vector2& screenPos);
-}
+
+};

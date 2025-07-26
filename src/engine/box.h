@@ -6,11 +6,12 @@
 
 #include "shapes.h"
 
+namespace engine {
+
 class Box {
 public:
     Box(const Vector3& pos, const Vector3& size)
-        : pos(pos), size(size) {
-    }
+        : pos(pos), size(size) {}
 
     Vector3 pos;
     Vector3 size;
@@ -65,3 +66,5 @@ inline Box Box::from_min_max(const Vector3& min, const Vector3& max) {
     const Vector3 center = Vector3Add(min, scaledSize);
     return { center, size };
 }
+
+};

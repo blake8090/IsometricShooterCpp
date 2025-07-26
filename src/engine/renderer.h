@@ -7,6 +7,8 @@
 #include "box.h"
 #include "shapes.h"
 
+namespace engine {
+
 class Engine;
 
 struct TextureRenderable {
@@ -46,4 +48,6 @@ private:
     void draw_shapes();
     void draw_actors();
     void draw_sprite(const Sprite& sprite, const Vector3& world_pos) const;
+};
+
 };

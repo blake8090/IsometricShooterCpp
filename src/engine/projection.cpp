@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-namespace projection {
+namespace engine::projection {
 
 float get_isometric_ratio() {
     return std::sqrt(static_cast<float>(TILE_SIZE_X) / static_cast<float>(TILE_SIZE_Y));

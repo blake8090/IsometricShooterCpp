@@ -8,6 +8,8 @@
 #include <memory>
 #include <string>
 
+namespace engine {
+
 class Engine {
 public:
     Engine() {
@@ -23,7 +25,7 @@ public:
     void shutdown();
     bool running() const;
 
-    void set_state(State *state);
+    void set_state(State* state);
 
     std::unique_ptr<Assets> assets;
     std::unique_ptr<Renderer> renderer;
@@ -35,4 +37,6 @@ private:
     std::unique_ptr<State> current_state;
 
     bool running_;
+};
+
 };

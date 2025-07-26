@@ -2,10 +2,11 @@
 
 class Engine;
 
+namespace engine {
+
 class State {
 public:
-    explicit State(const Engine& e) : engine_(e) {
-    }
+    explicit State(const Engine& e) : engine_(e) {}
 
     virtual ~State() = default;
 
@@ -15,4 +16,6 @@ public:
 
 protected:
     const Engine& engine_;
+};
+
 };

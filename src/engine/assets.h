@@ -5,6 +5,8 @@
 #include <raylib.h>
 #include <unordered_map>
 
+namespace engine {
+
 class Assets {
 public:
     void init();
@@ -17,4 +19,6 @@ private:
     void load_texture(const std::string& fileName);
 
     std::unordered_map<std::string, std::unique_ptr<Texture2D>> textures;
+};
+
 };

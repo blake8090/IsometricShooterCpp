@@ -7,6 +7,8 @@
 #include <memory>
 #include <raylib.h>
 
+namespace engine {
+
 void Assets::init() {
     load_texture("assets/bullet.png");
 }
@@ -31,3 +33,5 @@ void Assets::load_texture(const std::string& fileName) {
     Texture2D texture = LoadTexture(fileName.c_str());
     textures.emplace(fileName, std::make_unique<Texture2D>(texture));
 }
+
+};

@@ -2,6 +2,8 @@
 
 #include <ranges>
 
+namespace engine {
+
 int World::add_actor(Vector3 pos) {
     int id = next_id++;
     actors_.emplace(id, std::make_unique<Actor>(id, pos));
@@ -20,3 +22,5 @@ void World::each_actor(const std::function<void(Actor&)>& func) {
         func(*val.get());
     }
 }
+
+};

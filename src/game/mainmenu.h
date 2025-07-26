@@ -2,9 +2,9 @@
 
 #include "state.h"
 
-class MainMenuState final : public State {
+class MainMenuState final : public engine::State {
 public:
-    explicit MainMenuState(const Engine& e) : State(e) {
+    explicit MainMenuState(const engine::Engine& e) : engine::State(e) {
     }
 
     void start() override;

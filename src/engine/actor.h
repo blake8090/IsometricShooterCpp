@@ -6,6 +6,8 @@
 #include <unordered_map>
 #include <utility>
 
+namespace engine {
+
 struct Component {};
 
 struct Sprite : Component {
@@ -65,4 +67,6 @@ public:
 
 private:
     std::unordered_map<std::type_index, std::unique_ptr<Component>> components_;
+};
+
 };

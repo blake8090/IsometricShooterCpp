@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    Engine engine;
+    engine::Engine engine;
     engine.start("Isometric Shooter");
     engine.set_state(new MainMenuState(engine));
 

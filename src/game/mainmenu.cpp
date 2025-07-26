@@ -11,8 +11,8 @@ void MainMenuState::start() {
     const int id = engine_.world->add_actor({ 0.0f, 0.0f, 0.0f });
     const auto actor = engine_.world->get_actor(id);
 
-    actor->add_component<Sprite>("assets/bullet.png");
-    actor->add_component<Collider>(Vector3{ 1.0f, 1.0f, 1.0f }, Vector3{ 0.0f, 0.0f, 0.0f });
+    actor->add_component<engine::Sprite>("assets/bullet.png");
+    actor->add_component<engine::Collider>(Vector3{ 1.0f, 1.0f, 1.0f }, Vector3{ 0.0f, 0.0f, 0.0f });
 }
 
 void MainMenuState::stop() {
@@ -26,6 +26,6 @@ void MainMenuState::update(const float delta) {
 
     engine_.renderer->draw_circle(Vector3{ 0.0f, 0.0f, 0.0f }, 1.0f, BLUE);
 
-    const Box test_box{ Vector3{ 1.0f, 1.0f, 0.25f }, Vector3{ 1.0f, 1.0f, 1.5f } };
+    const engine::Box test_box{ Vector3{ 1.0f, 1.0f, 0.25f }, Vector3{ 1.0f, 1.0f, 1.5f } };
     engine_.renderer->draw_box(test_box, 1.0f, BLUE);
 }

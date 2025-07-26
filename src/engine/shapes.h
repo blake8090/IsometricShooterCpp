@@ -2,6 +2,8 @@
 #include <raylib.h>
 #include <vector>
 
+namespace engine {
+
 struct Segment {
     Vector3 start;
     Vector3 end;
@@ -44,4 +46,6 @@ struct Shapes {
         points.clear();
         spheres.clear();
     }
+};
+
 };

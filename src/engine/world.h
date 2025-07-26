@@ -5,6 +5,8 @@
 
 #include "actor.h"
 
+namespace engine {
+
 class World {
 public:
     int add_actor(Vector3 pos);
@@ -14,4 +16,6 @@ public:
 private:
     int next_id = 0;
     std::unordered_map<int, std::unique_ptr<Actor>> actors_;
+};
+
 };
