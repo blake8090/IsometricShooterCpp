@@ -1,5 +1,6 @@
 #include "engine.h"
 #include "mainmenu.h"
+#include "actor.h"
 
 #include <fmt/core.h>
 #include <raylib.h>
@@ -10,15 +11,8 @@ void MainMenuState::start() {
     const int id = engine_.world->add_actor({ 0.0f, 0.0f, 0.0f });
     const auto actor = engine_.world->get_actor(id);
 
-    const auto sprite = new Sprite{
-        "assets/bullet.png",
-        { 0.0f, 0.0f },
-        1.0f,
-        0.0f,
-        0.0f
-    };
-    actor->set_sprite(std::unique_ptr<Sprite>(sprite));
-    actor->set_collider(std::make_unique<Collider>(Vector3 {1.0f, 1.0f, 1.0f}, Vector3 {0.0f, 0.0f, 0.0f}));
+    actor->add_component<Sprite>("assets/bullet.png");
+    actor->add_component<Collider>(Vector3{ 1.0f, 1.0f, 1.0f }, Vector3{ 0.0f, 0.0f, 0.0f });
 }
 
 void MainMenuState::stop() {

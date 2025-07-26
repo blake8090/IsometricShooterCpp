@@ -18,16 +18,12 @@ public:
     }
 
     void start(const std::string& window_title);
-
     void stop();
-
     void update();
-
     void shutdown();
+    bool running() const;
 
     void set_state(State *state);
-
-    bool running() const;
 
     std::unique_ptr<Assets> assets;
     std::unique_ptr<Renderer> renderer;

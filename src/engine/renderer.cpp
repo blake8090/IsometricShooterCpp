@@ -1,5 +1,6 @@
 #include "renderer.h"
 #include "projection.h"
+#include "actor.h"
 
 #include <vector>
 #include <raylib.h>
@@ -156,18 +157,24 @@ void Renderer::draw_shapes() {
 }
 
 void Renderer::draw_actors() {
-    engine_.world->each_actor([this](const Actor& actor) {
-        if (const auto sprite = actor.get_sprite()) {
-            const Texture2D texture = engine_.assets->get_texture(sprite->texture);
-            const auto screen_pos = projection::to_screen(actor.pos);
-            DrawTextureV(texture, screen_pos, WHITE);
+    engine_.world->each_actor([this](Actor& actor) {
+        if (const Sprite* sprite = actor.get_component<Sprite>()) {
+            draw_sprite(*sprite, actor.pos);
         }
 
-        if (const auto collider = actor.get_collider()) {
+        if (const Collider* collider = actor.get_component<Collider>()) {
             const Vector3 min = Vector3Add(actor.pos, collider->offset);
             const Vector3 max = Vector3Add(min, collider->size);
             const Box b = Box::from_min_max(min, max);
             this->draw_box(b, 1.0f, YELLOW);
         }
     });
+}
+
+void Renderer::draw_sprite(const Sprite& sprite, const Vector3& world_pos) const {
+    if (engine_.assets->has_texture(sprite.texture)) {
+        const Texture2D texture = engine_.assets->get_texture(sprite.texture);
+        const auto screen_pos = projection::to_screen(world_pos);
+        DrawTextureV(texture, screen_pos, WHITE);
+    }
 }

@@ -19,6 +19,10 @@ void Assets::shutdown() {
     }
 }
 
+bool Assets::has_texture(const std::string& name) const {
+    return textures.contains(name);
+}
+
 Texture2D& Assets::get_texture(const std::string& name) {
     return *textures[name];
 }

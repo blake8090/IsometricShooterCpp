@@ -6,7 +6,6 @@ add_library(engine STATIC
         projection.cpp
         shapes.h
         box.h
-        actor.cpp
         actor.h
         world.h
         world.cpp

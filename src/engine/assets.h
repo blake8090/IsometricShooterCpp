@@ -8,9 +8,9 @@
 class Assets {
 public:
     void init();
-
     void shutdown();
 
+    bool has_texture(const std::string& name) const;
     Texture2D& get_texture(const std::string& name);
 
 private:

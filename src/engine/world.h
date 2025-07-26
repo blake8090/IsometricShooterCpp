@@ -8,9 +8,7 @@
 class World {
 public:
     int add_actor(Vector3 pos);
-
     Actor* get_actor(int id);
-
     void each_actor(const std::function<void(Actor&)>& func);
 
 private:

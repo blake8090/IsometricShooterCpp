@@ -33,6 +33,8 @@ private:
     };
 };
 
+// TODO: make this "generate_segments()" to avoid recalculating all this
+//  also this shouldn't be inline
 inline std::vector<Segment> Box::get_segments() const {
     std::vector<Segment> segments;
     // top
@@ -56,6 +58,7 @@ inline std::vector<Segment> Box::get_segments() const {
     return segments;
 }
 
+// TODO: doesn't need to be inline
 inline Box Box::from_min_max(const Vector3& min, const Vector3& max) {
     const Vector3 size = Vector3Subtract(max, min);
     const Vector3 scaledSize = Vector3Scale(size, 0.5f);
