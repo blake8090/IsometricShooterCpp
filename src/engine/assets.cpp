@@ -11,6 +11,7 @@ namespace engine {
 
 void Assets::init() {
     load_texture("assets/bullet.png");
+    load_texture("assets/cube.png");
 }
 
 void Assets::shutdown() {

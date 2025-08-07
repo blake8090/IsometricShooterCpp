@@ -12,6 +12,7 @@ public:
     void init();
     void shutdown();
 
+    // TODO: just return a pointer and use an if statement
     bool has_texture(const std::string& name) const;
     Texture2D& get_texture(const std::string& name);
 
